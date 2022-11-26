@@ -599,6 +599,9 @@ async def on_message(message):
     if message.guild.id == 988374126681030656 and message.channel.id == 988374129226965012:
         if message.content == "/resend-roles":
             await message.reply("Make sure to select Crew3 bot while typing the command")
+    if message.guild.id == 988374126681030656:
+        if 'no role' in message.content or "haven't got role" in message.content or "haven't got my role" in message.content:
+            await message.reply("go to <#988374129226965012> and type /resend-roles make sure to select crew3 bot to get your roles")
 
     await client.process_commands(message)
 
