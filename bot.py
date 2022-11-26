@@ -596,43 +596,9 @@ async def give_role(name, disc, invites):
         
 @client.event
 async def on_message(message):
-    if message.guild.id == 989976603243188224 and message.channel.id == 990572600411443251:
-        if message.author.id == 720351927581278219:
-            name, disc = message.embeds[0].title.strip('*').split('#')
-            description = message.embeds[0].description
-            invites = re.findall(r'\*\*.*?\*\*', description)[0].strip('*')
-            await give_role(name, disc, int(invites))
-
     if message.guild.id == 988374126681030656 and message.channel.id == 988374129226965012:
         if message.content == "/resend-roles":
-            print(message)
-            await message.reply("Make sure to select Crew3 bot")
-            await message.channel.send("Make sure to select Crew3 bot")
-            
-    if message.guild.id == 989976603243188224:
-        princes = 990241246222094366
-        holders = 995499325473947648
-        prince = message.guild.get_role(princes)
-        holder = message.guild.get_role(holders)
-        user = message.author
-        if user == None:
-            print("no")
-        else:
-            if message.attachments:
-                text = ''.join(str(e) for e in message.attachments)
-                text = text[-3:]
-                if text == "txt":
-                    await message.delete()
-                    return
-            if prince in user.roles or holder in user.roles:
-                print("white")
-            else:
-                links = [".com", ".net", ".org", ".co", ".us", ".ml", ".tk", ".ga", ".cf", ".gq", "https",
-                         "PHASE 2 MINTING LIVE NOW", "http", "👉 http", "mint.io"]
-                white = ["tenor"]
-                if any(word in message.content.lower() for word in links) and any(
-                        word not in message.content.lower() for word in white):
-                    await message.delete()
+            await message.reply("Make sure to select Crew3 bot while typing the command")
 
     await client.process_commands(message)
 
