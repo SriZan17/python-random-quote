@@ -6,7 +6,7 @@ import sys
 import requests
 import re
 
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 intents.members = True
 
 client = commands.Bot(intents=intents, command_prefix='mimi ')
