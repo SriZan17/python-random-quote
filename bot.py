@@ -400,6 +400,7 @@ async def on_message_edit(before, after):
                 await after.delete()
 
 
+
 @client.event
 async def on_message_delete(message):
     if message.guild.id == 995429222497652796 and message.channel.id == 996666624058867774:
@@ -591,17 +592,21 @@ async def give_role(name, disc, invites):
         five_invites_role = discord.utils.get(guild.roles, id=1033581489796939836)
         await user.add_roles(five_invites_role)
         await check_roles(guild, user.id, 5)
-
+        
+        
 @client.event
 async def on_message(message):
-    
     if message.guild.id == 989976603243188224 and message.channel.id == 990572600411443251:
         if message.author.id == 720351927581278219:
             name, disc = message.embeds[0].title.strip('*').split('#')
             description = message.embeds[0].description
             invites = re.findall(r'\*\*.*?\*\*', description)[0].strip('*')
             await give_role(name, disc, int(invites))
-    
+            
+    if message.guild.id == 988374126681030656 and message.channel.id == 988374129226965012:
+        if message.content == "/resend-roles":
+            await message.channel.send("Make sure to select Crew3 bot")
+            
     if message.guild.id == 989976603243188224:
         princes = 990241246222094366
         holders = 995499325473947648
@@ -626,11 +631,12 @@ async def on_message(message):
                 if any(word in message.content.lower() for word in links) and any(
                         word not in message.content.lower() for word in white):
                     await message.delete()
+                    
     await client.process_commands(message)
+
     
 @client.command()
 async def check(ctx):
     await ctx.send("Working :cat:")
 
 client.run(os.environ["DISCORD_TOKEN"])
-
