@@ -605,7 +605,9 @@ async def on_message(message):
 
     if message.guild.id == 988374126681030656 and message.channel.id == 988374129226965012:
         if message.content == "/resend-roles":
+            print(message)
             await message.reply("Make sure to select Crew3 bot")
+            await message.channel.send("Make sure to select Crew3 bot")
             
     if message.guild.id == 989976603243188224:
         princes = 990241246222094366
