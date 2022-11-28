@@ -630,7 +630,7 @@ async def dance(ctx):
 @client.event
 async def on_raw_reaction_add(payload):
     if str(payload.emoji) == "🎶" and not payload.member.bot:
-        if payload.guild_id == 744107902587109396:
+        if payload.guild_id != 144107902587109396:
             channel = client.get_channel(payload.channel_id)
             message = await channel.fetch_message(payload.message_id)
             if message.author.id == 860904195279028245:
