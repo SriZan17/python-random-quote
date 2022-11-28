@@ -612,7 +612,10 @@ async def check(ctx):
     await ctx.send("Working :cat:")
     
 @client.command()
-async def meow(ctx):
-    await ctx.send("meowwww :cat:")
+async def say(ctx,*args):
+    stc = ""
+    for i in args:
+        stc = stc + i + ""
+    await ctx.send(stc)
 
 client.run(os.environ["DISCORD_TOKEN"])
