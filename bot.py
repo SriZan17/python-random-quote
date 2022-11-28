@@ -207,12 +207,12 @@ async def on_ready():
 
 
 
-@client.event
-async def on_raw_reaction_add(payload):
-    channel = client.get_channel(payload.channel_id)
-    message = await channel.fetch_message(payload.message_id)
-    user = client.get_user(payload.user_id)
-    await message.remove_reaction('🤡', user)
+# @client.event
+# async def on_raw_reaction_add(payload):
+#     channel = client.get_channel(payload.channel_id)
+#     message = await channel.fetch_message(payload.message_id)
+#     user = client.get_user(payload.user_id)
+#     await message.remove_reaction('🤡', user)
 
 
 async def assign(ctx, role: discord.Role):
@@ -380,7 +380,7 @@ async def list(ctx):
 #                 await message.channel.send(nwled)
 #             await message.channel.send(f"Successfully done for {len(successful)} users")
 #             await message.channel.send(f"Couldn't find {len(left_over)} users")
-    await client.process_commands(message)
+#     await client.process_commands(message)
 
 
 
