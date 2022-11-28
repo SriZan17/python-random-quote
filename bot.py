@@ -617,5 +617,22 @@ async def say(ctx,*args):
     for i in args:
         stc = stc + i + " "
     await ctx.send(stc)
+    
+    
+@client.command()
+async def dance(ctx):
+    message = await ctx.send("♪┏(・o･)┛♪")
+    await asyncio.sleep(1)
+    message = await message.edit(content="♪┗ ( ･o･) ┓♪")
+    await asyncio.sleep(1)
+    message = await message.edit(content="♪┏(・o･)┛♪")
+    await asyncio.sleep(1)
+    message = await message.edit(content="♪┗ ( ･o･) ┓♪")
+    await asyncio.sleep(1)
+    message = await message.edit(content="♪┏(・o･)┛♪")
+    await asyncio.sleep(1)
+    message = await message.edit(content="♪┗ ( ･o･) ┓♪")
+    await asyncio.sleep(1)
+    message = await message.edit(content="♪┏(・o･)┛♪")
 
 client.run(os.environ["DISCORD_TOKEN"])
