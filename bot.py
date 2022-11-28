@@ -615,7 +615,7 @@ async def check(ctx):
 async def say(ctx,*args):
     stc = ""
     for i in args:
-        stc = stc + i + ""
+        stc = stc + i + " "
     await ctx.send(stc)
 
 client.run(os.environ["DISCORD_TOKEN"])
