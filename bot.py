@@ -5,6 +5,7 @@ from discord.ext import commands
 import sys
 import requests
 import re
+import asyncio
 
 intents = discord.Intents.all()
 intents.members = True
