@@ -623,17 +623,30 @@ async def say(ctx,*args):
 @client.command()
 async def dance(ctx):
     message = await ctx.send("♪┏(・o･)┛♪")
-    await asyncio.sleep(1)
-    message = await message.edit(content="♪┗ ( ･o･) ┓♪")
-    await asyncio.sleep(1)
-    message = await message.edit(content="♪┏(・o･)┛♪")
-    await asyncio.sleep(1)
-    message = await message.edit(content="♪┗ ( ･o･) ┓♪")
-    await asyncio.sleep(1)
-    message = await message.edit(content="♪┏(・o･)┛♪")
-    await asyncio.sleep(1)
-    message = await message.edit(content="♪┗ ( ･o･) ┓♪")
-    await asyncio.sleep(1)
-    message = await message.edit(content="♪┏(・o･)┛♪")
+    await message.add_reaction("🎶")
+    
+    
+
+@client.event
+async def on_raw_reaction_add(payload):
+    if str(payload.emoji) == "🎶" and not payload.member.bot:
+        if payload.guild_id == 744107902587109396:
+            channel = client.get_channel(payload.channel_id)
+            message = await channel.fetch_message(payload.message_id)
+            if message.author.id == 860904195279028245:
+                await asyncio.sleep(1)
+                message = await message.edit(content="♪┗ ( ･o･) ┓♪")
+                await asyncio.sleep(1)
+                message = await message.edit(content="♪┏(・o･)┛♪")
+                await asyncio.sleep(1)
+                message = await message.edit(content="♪┗ ( ･o･) ┓♪")
+                await asyncio.sleep(1)
+                message = await message.edit(content="♪┏(・o･)┛♪")
+                await asyncio.sleep(1)
+                message = await message.edit(content="♪┗ ( ･o･) ┓♪")
+                await asyncio.sleep(1)
+                message = await message.edit(content="♪┏(・o･)┛♪")
+                user = client.get_user(payload.user_id)
+                await message.remove_reaction('🎶', user)
 
 client.run(os.environ["DISCORD_TOKEN"])
